@@ -1,0 +1,33 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage[utf8]{inputenc} % Soporte para acentos
+\usepackage[T1]{fontenc}    
+\usepackage[spanish]{babel} % Español
+\usepackage{        }	% Soporte de símbolos adicionales (matemáticas)
+\usepackage{amssymb}		
+\usepackage{amsfonts}
+\usepackage{latexsym}
+
+% Información para el título
+\title{Documento modular}
+\author{Miguel Piña}
+
+% Indicamos una separación entre los párrafos
+\parskip=3mm
+
+% Eliminamos la sangría de los párrafos
+\parindent=0mm
+
+\pagestyle{myheadings}
+%\markright{\LaTeX \hfill Fórmulas matemáticas \;\;}
+
+\begin{document}
+
+\maketitle
+
+\input{etimologia}
+\input{section}
+%\input{credito(1)}
+\bibliographystyle{plain}
+\bibliography{biblio}
+\end{document}

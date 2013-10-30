@@ -1,0 +1,438 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{slantsc}
+
+\topmargin = -2cm
+\oddsidemargin= 0cm
+\textheight = 23cm
+\textwidth = 17cm
+
+\renewcommand{\shorthandsspanish}{}
+
+\parindent=0mm
+
+\title{Mi primer documento en \LaTeX{}}
+
+\author{Pablo Pérez}
+
+\date{\today{}}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\begin{abstract}
+Ejemplo de documento \LaTeX{} de la clase {\ttfamily article} con una estructura básica. 
+Incluye secciones, subsecciones y una referencia cruzada. También se incluyen varios detalles básicos, el uso de diferentes características de las fuentes, párrafos y listas.
+\end{abstract}
+
+\section{Primera sección}\label{primera}
+
+\LaTeX{} nos permite crear distintas clases de documentos, entre las que se pueden mencionar: book, article, report, letter y presentaciones, entre otras.
+
+Todos ellos tienen diferentes características y formato. Por ejemplo, la clase \textit{"book"} (libro) coloca un estilo diferente a las páginas pares e impares, permite crear documentos divididos en capítulos, introducir diferente  tipo de tablas de contenido, entre otros detalles.
+
+
+
+
+
+En \LaTeX los espacios y saltos de linea no siempre se toman de forma literal.
+Por ejemplo, un espacio        es      equivalente a      dos o más. 
+Un salto de linea es equivalente a un espacio en blanco.
+
+Dos o más saltos de linea son equivalentes a un salto de linea.
+
+Se pueden introducir saltos de linea mediante la expresión $\backslash\backslash$.
+
+Se puede introducir un salto de página mediante el comando $\backslash$newpage o \textbackslash pagebreak.
+
+\section{Caracteres especiales}
+
+\LaTeX hace uso de varios caracteres para indicar las operaciones que se llevarán a cabo sobre el texto, a estos se les conoce como \emph{caracteres reservados}, todos ellos tienen un significado especial para \LaTeX, por lo que son interpretados por el compilador.
+
+Entre ellos se encuentran:
+
+\textbackslash
+
+\{ y \}
+
+\$
+
+\&
+
+\_
+
+\^{}
+
+\#
+
+\~{}
+
+\%
+
+Para hacer uso de estos caracteres es necesario \textit{escaparlos} o utilizar una expresión que los represente. Por ejemplo:
+
+$A = \{a, b, c\}$
+
+b\textbackslash a $= \frac{a}{b}$
+
+
+\section{Acentos}
+
+Los acentos en \LaTeX se pueden escribir de la siguiente forma:
+
+\verb@\'a@ = \'a
+
+\verb@\'e@ = \'e
+
+\verb@\'i@ = \'i
+
+\verb@\'o@ = \'o
+
+\verb@\'u@ = \'u
+
+\verb@\'a@ = \'A
+
+\verb@\'e@ = \'E
+
+\verb@\'i@ = \'I
+
+\verb@\'o@ = \'O
+
+\verb@\'u@ = \'U
+
+En el caso de la letra \~n, se puede introducir de esta forma:
+
+\verb@\~n@ = \~n
+
+\verb@\~N@ = \~N
+
+\noindent Otra forma de introducirlos es haciendo uso del paquete \textit{inputenc} el cual permite escribir caracteres en el formato habitual, convirtiéndose internamente el texto introducido a texto LaTeX, de acuerdo con las diferentes tablas de equivalencia para las 
+distintas páginas de códigos y de forma completamente transparente al usuario.
+
+\noindent Una manera de llevar a cabo lo anterior es introduciendo al principio de nuestro documento (en el preámbulo, entre \textbackslash documentclass y \textbackslash begin\{document\}) lo siguiente:
+
+\textbackslash usepackage[latin1]\{inputenc\}
+
+si la codificación es iso-8889-1 (también conocida como latin1).
+
+Si deseamos hacer uso de codificación utf-8:
+
+\verb@\usepackage[utf8]{inputenc}@
+
+\noindent Ésta última es la más recomendada por ser un estándar que está siendo adoptado en diversas areas.
+
+\section{Listas}
+
+Podemos introducir una lista básica de la siguiente forma:
+
+\begin{itemize}
+\item Primer ítem
+\item Segundo ítem
+\item Tercer ítem
+\end{itemize}
+
+\section{Formato de texto}
+
+Veamos algunas otras maneras de dar formato al texto.
+
+Podemos hacer uso de diferentes tipos de letra, por ejemplo:
+
+\begin{itemize}
+\item \textrm{Romana}
+% antiguamente se usaba {\rm }
+
+\item \emph{Enfática}
+% antiguamente se usaba {\em }
+
+\item \textbf{Negritas}
+% antiguamente se usaba {\bf }
+
+\item \textit{itálicas}
+% antiguamente se usaba {\it }
+
+\item \textsl{Slanted}
+% antiguamente se usaba {\sl }
+
+\item \textsf{Sans Serif}
+% antiguamente se usaba {\sf }
+
+\item \textsc{Small Caps}
+% antiguamente se usaba {\sc }
+
+\item \texttt{Typewriter}
+% antiguamente se usaba {\tt }
+
+\item \underline{Subrayado}
+
+\end{itemize}
+
+Estos tipos de letras se pueden combinar para producir, por ejemplo, letras en estilo versales negritas: \textbf{\textsc{Small Caps}}
+
+\section{Tamaño de letras}
+
+Al igual que con los estilos de la fuente, también podemos especificar un tamaño para las letras, basado en el tamaño de la fuente que utiliza el documento actual.
+
+Una forma de especificar estos tamaños es como se muestra a continuación:
+
+\begin{itemize}
+
+\item {\tiny tiny}
+% también se puede utilizar \begin{tiny} ... \end{tiny}
+
+\item {\scriptsize scriptsize}
+% también se puede utilizar \begin{scriptsize} ... \end{scriptsize}
+
+\item {\small small}
+% también se puede utilizar \begin{small} ... \end{small}
+
+\item {\normalsize normal}
+
+\item {\large large}
+% también se puede utilizar \begin{large} ... \end{large}
+
+\item {\Large Large}
+% también se puede utilizar \begin{Large} ... \end{Large}
+
+\item {\LARGE LARGE}
+% también se puede utilizar \begin{tiny} \end{tiny}
+
+\item {\huge huge}
+% también se puede utilizar \begin{huge} ... \end{huge}
+
+\item {\Huge Huge}
+% también se puede utilizar \begin{Huge} ... \end{Huge}
+
+\end{itemize}
+
+Todos estos tamaños están basados en el tamaño de la fuente del documento.
+
+Estos tamaños se pueden combinar con los estilos de la sección anterior, por ejemplo:
+
+\medskip
+
+\begin{Large}
+\textbf{\textit{Ojalá estuviera poniendo atención.}}
+\end{Large}
+
+\section{Texto centrado}
+
+Se puede indicar que una parte del documento aparezca centrado en la caja de texto mediante el siguiente ambiente:
+
+\begin{center}
+\LARGE{\textbf{\textit{\LaTeX no es \\ tan complicado!!!}}}
+\end{center}
+
+\section{Texto alineado a la derecha}
+
+La siguiente expresión nos permite colocar texto alineado a la derecha:
+
+\hfill Este texto aparecerá alineado al margen derecho.
+
+\bigskip
+
+En este caso solamente alineamos a la derecha \hfill una parte.
+
+Podemos incluir una linea o puntos de la siguiente forma:
+
+\bigskip
+
+Sección 1 \hrulefill Página 17
+
+\bigskip
+
+Sección 2 \dotfill Página 24
+
+\section{Espacios verticales y horizontales}
+
+Los espacios horizontales se pueden introducir mediante la expresión:
+
+\hspace{2in}Dos pulgadas.
+
+\hspace{3cm}Tres centimetros.
+
+\hspace{50pt}Cincuenta puntos.
+
+\hspace{-3cm}En el margen.
+
+$x_{2}$ \hspace{4cm} $x^{2}$
+
+Los espacios verticales se pueden introducir de la siguiente forma:
+
+\vspace{2cm}Texto ubicado dos centimetros abajo.
+
+%\vspace{-5cm} \hspace{6cm} Texto ubicado 5 cm arriba y 6 a la derecha.
+
+%\vspace{3cm}
+
+\section{Uso de columnas}
+
+La expresión \textbf{\textbackslash multicol} nos permite introducir texto en columnas. Para poder hacer uso de esto es necesario cargar el paquete \textbf{multicol}. Veamos un ejemplo:
+
+\begin{multicols}{2}
+Este es  un ejemplo de texto en dos columnas, puede notarse que \LaTeX{} se encarga de distrobuir el texto de tal forma que las columnas se muestren de igual tamaño. De la misma forma se puede introducir texto en tres o más columnas.\\
+Para el caso de dos columnas se puede hacer uso de \textbf{twocolumn}.\\
+También se puede indicar el tamaño de cada una de las columnas, pero para esto es necesario hacer uso del ambiente \textbf{\textbackslash minipage} 
+o de \textbf{\textbackslash parbox}.
+\end{multicols}
+
+\pagebreak
+
+\section{Notas al pie}
+
+Las notas al pie se pueden introducir mediante la expresión:
+\begin{center}
+\textbackslash footnote\{ ... \}
+\end{center}
+Esta expresión se coloca en el lugar en el que aparecerá la etiqueta \footnote{Ejemplo de nota al pie}.
+
+\section{Texto Verbatim}
+
+El entorno \textbf{verbatim} nos permite introducir un bloque de texto en el que se va a respetar la forma del texto y los espacios. Por ejemplo:
+
+\begin{verbatim}
+Este texto       debe aparecer   exactamente como lo escribimos.
+
+Se deben respetar los espacios y
+
+saltos de linea. \textbf{negritas} 
+\textit{itálicas}
+\end{verbatim}
+
+El uso más común de este entorno es para introducir código fuente de algún lenguaje de programación.
+
+\section{Primera sección}
+
+\section{Listas numeradas}
+
+Este tipo de listas se pueden introducir de la siguiente forma:
+
+\begin{enumerate}
+	\item Primer paso
+	\item Segundo paso
+	\item Tercer paso
+\end{enumerate}
+
+Se puede indicar un tipo diferente de numeración:
+
+\begin{enumerate}[I]
+	\item Primer paso
+	\item Segundo paso
+	\item Tercer paso
+\end{enumerate}
+
+\bigskip
+
+\begin{enumerate}[a]
+	\item Primer paso
+	\item Segundo paso
+	\item Tercer paso
+\end{enumerate}
+
+Se puede indicar el tipo de número mediante los caracteres: \textit{a, A, I, i, 1}.
+
+Este tipo de listas también pueden anidarse, por ejemplo:
+
+\begin{enumerate}
+	\item Primer paso
+		\begin{enumerate}
+			\item Verificar primero ..
+			\item Verfiricar después ...
+			\item Ahora ya podemos continuar.
+		\end{enumerate}
+	\item Segundo paso
+	\item Tercer paso
+\end{enumerate}
+
+También podemos indicar el número a usar para iniciar la numeración:
+
+\begin{enumerate}
+	\setcounter{enumi}{3}
+	\item Primer paso
+	\item Segundo paso
+	\item Tercer paso
+\end{enumerate}
+
+\subsection{Listas no numeradas}
+
+Las listas no numeradas se pueden introducir de la siguiente forma: 
+
+\begin{itemize}
+	\item Primer ítem
+	\item Segundo ítem
+	\item Tercer ítem
+\end{itemize}
+
+Podemos modificar el tipo de símbolo usado en un item de la siguiente forma:
+
+\begin{itemize}
+	\item Primer ítem
+	\item[$\delta$] Segundo ítem
+	\item Tercer ítem
+\end{itemize}
+
+Si deseamos cambiar el tipo de viñeta usado en los items debemos incluir las siguientes expresiones en el preámbulo.
+
+\begin{verbatim}
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
+\end{verbatim}
+
+De la misma forma, podemos indicar el tipo de números a usar para las listas numeradas:
+
+\begin{verbatim}
+\renewcommand{\labelenumi}{(\Roman{enumi})}
+\renewcommand{\labelenumii}{\Roman{enumi}.~\alph{enumii}}
+\end{verbatim}
+
+\section{Margenes y tamaño de la caja de texto}
+
+Ésta sección complementa a la seccion \ref{primera} incluyendo ejemplos de tablas escritas en \LaTeX.
+
+Podemos especificar el tamaño de los margenes y de la zona de texto mediante las siguientes expresiones:
+
+\begin{verbatim}
+\textheight = medida
+\textwidth = medida
+\topmargin = medida
+\oddsidemargin= medida
+\end{verbatim}
+
+Estos tamaños deben especificarse en el preámbulo.
+
+Se debe considerar que \LaTeX{} coloca diferente tamaño de margen para cada clase de documento.
+
+\section{Tabla de contenidos y título}
+
+Se puede introducir una tabla de contenidos de manera automática en nuestro documento mediante la expresión:
+
+\begin{verbatim}
+\tableofcontents
+\end{verbatim}
+
+En el caso del título, este puede introducirse de la siguiente forma:
+
+\begin{verbatim}
+\title{Documento Fuente \LaTeX{}}
+
+\author{Pablo Pérez}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+\end{verbatim}
+
+\end{document}

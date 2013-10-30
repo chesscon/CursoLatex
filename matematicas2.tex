@@ -1,0 +1,479 @@
+\documentclass[letterpaper,12pt]{book}
+
+\usepackage[utf8]{inputenc} % Soporte para acentos
+\usepackage[T1]{fontenc}    
+\usepackage[spanish,es-tabla, mexico]{babel} % Español
+\usepackage{amsmath}		% Soporte de símbolos adicionales (matemáticas)
+\usepackage{amssymb}		
+\usepackage{amsfonts}
+\usepackage{latexsym}
+
+% Información para el título
+\title{Expresiones Matemáticas 2}
+\author{J. Luis Torres}
+
+% Indicamos una separación entre los párrafos
+\parskip=3mm
+
+% Eliminamos la sangría de los párrafos
+\parindent=0mm
+
+%\pagestyle{myheadings}
+%\markright{\LaTeX \hfill Expresiones matemáticas 2\;\;}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+\tableofcontents
+
+\chapter{Prólogo}
+
+En esta sección se debe colocar la información del prólogo.
+
+El comando \verb@\frontmatter@ le indica a \LaTeX{} que estas secciones deben numerarse de manera distinta,
+generalmente con números romanos. Esto se puede utilizar para colocar la numeración al prólogo, 
+tabla de contenidos, índice de figuras, índice de tablas, etcétera.
+
+El comando \verb@\mainmatter@ que insertamos más abajo indica que se debe iniciar una 
+numeración con arábigos. Después de este comando se coloca el contenido del documento, es decir, capítulos.
+
+Al final del libro se puede utilizar el comando \verb@\appendix@ para colocar anexos, solamente se incluye antes del primer anexo. 
+
+También se puede utilizar \verb@\pagenumbering{estilo}@ para indicar el tipo de numeración a usar. Las opciones
+de estilo son: 
+
+\begin{itemize}
+	\item \textbf{arabic}: números arábigos. 
+	\item \textbf{roman}: números romanos con letras minúsculas. 
+	\item \textbf{Roman}: números romanos con letras mayúsculas.
+	\item \textbf{alph}: letras minúsculas. 
+	\item \textbf{Alph}: letras mayúsculas.
+\end{itemize}
+
+Otro comando que podemos usar es \verb@\setcounter{page}{número}@ para indicar dónde se debe iniciar la numeración
+en un capítulo. Este comando se coloca inmediatamente después de \verb@\chapter{}@.
+
+\mainmatter
+
+\chapter{Elementos Espaciales}
+
+\section{Arreglos y Matrices}
+
+Los arreglos se pueden introducir con el entorno \textbf{array}, siguiendo estos pasos\footnote{\textbf{Es importante considerar que este entorno se debe usar en modo matemático.}}
+
+\begin{itemize}
+	\item Indicamos el inicio del entorno: \verb@\begin{array}{alineación}@
+	\item Podemos indicar la alineación de las columnas en el indicador de inicio del entorno,
+		colocando las letras \textbf{l} para izquierda, \textbf{c} para centrado y \textbf{r} para derecha.\\
+		Por ejemplo: \verb@\begin{array}{lccr}@ indica un arreglo de cuatro columnas con la primera alineada
+		a la izquierda, la segunda y tercera centradas, y la cuarta alineada a la derecha.
+	\item Colocamos la información de las columnas, separando el contenido de éstas con el símbolo \textbf{\&}.
+		También debemos indicar el fin de cada renglón con un salto de linea \verb@\\@.
+	\item Colocamos el finalizador del entorno: \verb@\end{array}@.
+\end{itemize}
+
+Veamos algunos ejemplos:
+
+\[
+\begin{array}{lcc}
+	\mbox{Ecuación 1} & x^2 + 2x + 3 \\
+	\mbox{Ecuación 2} & sen(x^3) + cos(x^2) \\
+	\mbox{Ecuación 3} & x^3 - x^2
+\end{array}
+\]
+
+\emph{Nota:} en el modo matemático se pueden introducir acentos usando el comando \verb@\acute{}@, pero si una
+expresión se introduce por medio de \verb@\mbox{}@ los acentos pueden introducirse normalmente.
+
+\[
+\begin{array}{ccccc}
+	\alpha & 5 & 2.35 & sen(x) & \beta \\
+	2.3 & 0 & 4.5 & & \pi \\
+	3 & 7 & 6 & 8 & \sqrt[5]{2 \phi^2 + \beta^3} \\
+	\displaystyle\sum_{0}^{n} x^n & \infty & 6.4 & -9 & 2 \pi \\
+	-9.5 & 2.3 & 17.8 & 7676476 & \frac{75 x}{x-1}
+\end{array}
+\]
+
+En este tipo de expresiones podemos colocar los delimitadores que se han visto previamente, por ejemplo:
+
+\[
+Arreglo_1 = \left\{\begin{array}{ccccc}
+	\alpha & 5 & 2.35 & sen(x) & \beta \\
+	2.3 & 0 & 4.5 & & \pi \\
+	3 & 7 & 6 & 8 & \sqrt[5]{2 \phi^2 + \beta^3} \\
+	\displaystyle\sum_{0}^{n} x^n & \infty & 6.4 & -9 & 2 \pi \\
+	-9.5 & 2.3 & 17.8 & 7676476 & \frac{75 x}{x-1}
+\end{array}
+\right\}
+\]
+
+\[
+Arreglo_2 = \left[ \begin{array}{ccccc}
+	\alpha & 5 & 2.35 & sen(x) & \beta \\
+	2.3 & 0 & 4.5 & & \pi \\
+	3 & 7 & 6 & 8 & \sqrt[5]{2 \phi^2 + \beta^3} \\
+	\displaystyle\sum_{0}^{n} x^n & \infty & 6.4 & -9 & 2 \pi \\
+	-9.5 & 2.3 & 17.8 & 7676476 & \frac{75 x}{x-1}
+\end{array}
+\right]
+\]
+
+Podemos hacer uso de los delimitadores \verb@\left(@ y \verb@\right)@ para introducir matrices, haciendo uso
+de arreglos. 
+
+Veamos algunos ejemplos:
+
+\[
+A = \left( 
+\begin{array}{ccccc}
+	\alpha & 5 & 2.35 & sen(x) & \beta \\
+	2.3 & 0 & 4.5 & & \pi \\
+	3 & 7 & 6 & 8 & \sqrt[5]{2 \phi^2 + \beta^3} \\
+	\displaystyle\sum_{0}^{n} x^n & \infty & 6.4 & -9 & 2 \pi \\
+	-9.5 & 2.3 & 17.8 & 7676476 & \frac{75 x}{x-1}
+\end{array}
+\right)
+\]
+
+\[
+B = \left( 
+\begin{array}{lcc}
+	a & a+b & b-a \\
+	b & b & k-a-b \\
+	\vdots & \vdots & \vdots \\
+	c/a & \sqrt{b} + d & 2d
+\end{array}
+\right)
+\]
+
+\[
+C = \left( 
+\begin{array}{lccc}
+	a & a+b & \hdots & b-a \\
+	b & b & \hdots & k-a-b \\
+	\vdots & \vdots & \hdots & \vdots \\
+	c/a & \sqrt{b} + d & \hdots & 2d
+\end{array}
+\right)
+\]
+
+\[
+D = \left( 
+\begin{array}{lccc}
+	a & a+b & \cdots & b-a \\
+	b & b & \cdots & k-a-b \\
+	\vdots & \vdots & \ddots & \vdots \\
+	c/a & \sqrt{b} + d & \hdots & 2d
+\end{array}
+\right)
+\]
+
+También podemos hacer uso de arreglos para incluir, por ejemplo, funciones definidas por partes:
+
+\[
+f(x)= \left\{ 
+\begin{array}{lcl}
+	x^2 + 2 & \mbox{ si } & x<0 \\
+	& & \\
+	x-1 & \mbox{ si } & 0 < x < 2 \pi \\
+	& & \\
+	2 x - x^2 & \mbox{ si } & x>2 \pi
+\end{array}
+\right.
+\]
+
+Los arreglos pueden contener arreglos. Por ejemplo:
+
+\[
+f(x)= \left\{ 
+\begin{array}{lcl}
+	x^2 + 2 & \mbox{ si } & x<0 \\
+	& & \\
+	(2x \, \frac{1}{(x+1)^2})\left(\begin{array}{c} \frac{x}{sin(x)} \\ 4x \end{array}\right) & \mbox{ si } & 0 < x < 2 \pi \\
+	& & \\
+	2 x - x^2 & \mbox{ si } & x>2 \pi
+\end{array}
+\right.
+\]
+
+Podemos indicar un producto de matrices colocando simplemente una a continuación de la otra. Por ejemplo:
+
+\[
+B \cdot C = \left( 
+\begin{array}{lcc}
+	a & a+b & b-a \\
+	b & b & k-a-b \\
+	\vdots & \vdots & \vdots \\
+	c/a & \sqrt{b} + d & 2d
+\end{array}
+\right)\left( 
+\begin{array}{lccc}
+	a & a+b & \hdots & b-a \\
+	b & b & \hdots & k-a-b \\
+	\vdots & \vdots & \hdots & \vdots \\
+	c/a & \sqrt{b} + d & \hdots & 2d
+\end{array}
+\right)
+\]
+
+El paquete \emph{amsmath} contiene varios entornos que pueden ser usados para introducir matrices. Por ejemplo:
+
+El entorno \textbf{matrix} (arreglos):
+\[
+\begin{matrix}
+	1 & 2 \\
+	3 & 4
+\end{matrix}
+\]
+El entorno \textbf{pmatrix} (matrices):
+\[
+\begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+\end{pmatrix}
+\]
+El entorno \textbf{bmatrix} (con corchetes):
+\[
+\begin{bmatrix}
+	1 & 2 \\
+	3 & 4
+\end{bmatrix}
+\]
+
+\pagebreak
+
+\section{Ecuaciones Multilínea}
+
+Para introducir ecuaciones que ocupan varias lineas podemos hacer uso del entorno \verb@aligned@ o 
+\verb@split@ dentro del modo matemático. Por ejemplo:
+
+\[
+\begin{aligned}
+	M_{1,1} &= a_{1,1} \cdot b_{1,1} + a_{1,2} \cdot b_{2,1} + a_{1,3} \cdot b_{3,1} \\
+			&= x^2 \cdot 2x + x \cdot 2x + \frac{1}{x} \cdot sin(x) \\
+			&= 4 \cdot 4 + 2 \cdot 4 + \frac{1}{2} \cdot sin(2) 
+\end{aligned}
+\]
+
+Este tipo de expresiones también pueden introducirse mediante el entorno \verb@equation@.
+
+\begin{equation*}
+\begin{aligned}
+	M_{1,1} &= a_{1,1} \cdot b_{1,1} + a_{1,2} \cdot b_{2,1} + a_{1,3} \cdot b_{3,1} \\
+			&= x^2 \cdot 2x + x \cdot 2x + \frac{1}{x} \cdot sin(x) \\
+			&= 4 \cdot 4 + 2 \cdot 4 + \frac{1}{2} \cdot sin(2) 
+\end{aligned}
+\end{equation*}
+
+También pueden colocarse mediante el entorno \verb@align@.
+
+\begin{align*}
+	M_{1,1} &= a_{1,1} \cdot b_{1,1} + a_{1,2} \cdot b_{2,1} + a_{1,3} \cdot b_{3,1} \\
+			&= x^2 \cdot 2x + x \cdot 2x + \frac{1}{x} \cdot sin(x) \\
+			&= 4 \cdot 4 + 2 \cdot 4 + \frac{1}{2} \cdot sin(2) 
+\end{align*}
+
+Nótese que también es posible hacer uso de arreglos para introducir ecuaciones de varias lineas.
+
+\newpage
+
+\section{Arreglos de Ecuaciones}
+
+Los arreglos de ecuaciones se pueden introducir mediante los entornos \verb@aligned@ o \verb@align@. Por ejemplo:
+
+\begin{equation*}
+\begin{aligned}
+	x^2 + 2x + 3 &= 0 \\
+	3x^2 - x + 4 &= 0 \\
+	-x^2 + x - 3 &= 0
+\end{aligned}
+\end{equation*}
+
+\begin{align*}
+	x^2 + 2x + 3 &= 0 \\
+	3x^2 - x + 4 &= 0 \\
+	-x^2 + x - 3 &= 0
+\end{align*}
+
+Aparentemente obtenemos el mismo resultado, pero veamos que sucede si colocamos estos entornos sin asterisco:
+
+\begin{equation} \label{sist:eq1}
+\begin{aligned}
+	x^2 + 2x + 3 &= 0 \\
+	3x^2 - x + 4 &= 0 \\
+	-x^2 + x - 3 &= 0
+\end{aligned}
+\end{equation}
+
+\begin{align}
+	x^2 + 2x + 3 &= 0 \\
+	3x^2 - x + 4 &= 0 \\
+	-x^2 + x - 3 &= 0
+\end{align}
+
+En el entorno \verb@align@ podemos indicar que una de las ecuaciones no debe numerarse, mediante el comando \verb@\nonumber@:
+
+\begin{align}
+	x^2 + 2x + 3 &= 0 \\
+	3x^2 - x + 4 &= 0 \nonumber \\
+	-x^2 + x - 3 &= 0
+\end{align}
+
+También podemos insertar lineas de texto entre las ecuaciones de
+nuestro arreglo:
+
+\begin{align}
+	x^2 + 2x + 3 &= 0 \\
+	\intertext{la siguiente ecuación no es parte del sistema}
+	3x^2 - x + 4 &= 0 \nonumber \\
+	-x^2 + x - 3 &= 0
+\end{align}
+
+Otra opción para colocar ecuaciones muy grandes es hacer uso del
+entorno \verb@multline@.
+
+\begin{multline}
+ \sum_{i=1}^{15} x_i = x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7 + 	
+ 	x_8 + x_9 + \\
+ 	 x_{10} + x_{11} + x_{12} + x_{13} + x_{14} + x_{15}
+\end{multline}
+
+\section{Numeración y Referencia de Ecuaciones}
+
+Las ecuaciones y arreglos de ecuaciones pueden colocarse por medio de arreglos, pero existe una ventaja
+al hacer uso de entornos como \verb@equation@, \verb@align@ o \verb@aligned@, éstos últimos colocan una
+numeración de manera automática a las ecuaciones.
+
+\begin{equation}
+	E = m\cdot C^2
+\end{equation}
+
+Podemos hacer uso de esta numeración para referenciar las ecuaciones, agregando etiquetas a éstas mediante
+el comando \verb@\label{}@.
+
+\begin{equation} \label{eq:Einstein}
+	E = m\cdot C^2
+\end{equation}
+
+Después podemos hacer referencia a una ecuación a través de su etiqueta y \LaTeX{} automáticamente insertará
+el número de ecuación correspondiente\footnote{Cuando se usan este tipo de referencias el documento debe 
+compilarse dos veces.}.
+
+Si desea trabajar con una ecuación sencilla revise \eqref{eq:Einstein}.
+
+Tarea 1: resuelva el sistema de ecuaciones de \eqref{sist:eq1}.
+
+\newpage
+
+\chapter{Tablas}
+
+\section{Creación de tablas}
+
+El entorno \verb@tabular@ nos permite crear tablas en \LaTeX{}.
+
+La sintaxis es muy similar a los entornos \verb@array@ y 
+\verb@pmatrix@, pero en este caso debemos indicar la forma
+en la que se deben colocar las lineas divisorias. Por ejemplo:
+
+\begin{tabular}{|c|c|c|} \hline
+$p$ & $q$ & $p \rightarrow q$\\\hline
+0 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\\hline
+\end{tabular}
+
+En general, la sintaxis es la siguiente:
+
+\begin{itemize}
+	\item Indicamos el inicio del entorno: 
+		\verb@\begin{tabular}{formato de columnas}@
+		
+		El formato de las columnas lo indicamos de la misma forma
+		que en el caso de los arreglos, incluyendo además las
+		lineas divisorias, con el caracter \textbf{|}.
+	\item Con el comando \verb@\hline@ indicamos si se debe
+		colocar una linea horizontal en la parte superior.
+	\item Colocamos la información de cada renglón de la tabla,
+		separando cada columna con \textit{ampersand}.
+	\item Al final de cada renglón incluimos un salto de linea y
+		podemos indicar si se debe colocar una linea horizontal
+		antes de iniciar el siguiente renglón.
+	\item Indicamos el final del entorno con \verb@\end{tabular}@.
+\end{itemize}
+
+El entorno \verb@tabular@ puede ser incluido dentro del entorno
+\verb@table@ para agregar algunas características a la tabla.
+Por ejemplo:
+
+\begin{table}
+\begin{tabular}{|c|c|c|} \hline
+$p$ & $q$ & $p \rightarrow q$\\\hline
+0 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\\hline
+\end{tabular}
+\end{table}
+
+Comparemos con la siguiente tabla:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+$p$ & $q$ & $p \rightarrow q$\\\hline
+0 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\\hline
+\end{tabular}
+\caption{Tabla de verdad $p \rightarrow q$}
+\end{table}
+
+El comando \verb@\hline@ nos permite colocar una linea horizontal
+del ancho de la tabla. También podemos hacer uso del comando
+\verb@\cline{i-j}@ para colocar una linea de la columna i a la j.
+Por ejemplo:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{| l | c | r | }
+	\hline
+   1 & 2 & 3 \\
+   \cline{1-2}
+   4 & 5 & 6 \\
+   \cline{2-2}
+   7 & 8 & 9 \\
+   \hline
+ \end{tabular}
+\end{table}
+
+\appendix
+\chapter{Algunos símbolos}
+
+\section{Símbolos relacionales}
+
+\begin{equation*}
+\begin{aligned}
+\leq & & \verb@\leq@ \\
+\geq &	& \verb@\geq@ \\
+\succ &	& \verb@\succ@ \\
+\succeq & & \verb@\succeq@ \\
+\gg	 &	& \verb@\gg@ \\
+\ll & & \verb@\ll@ \\
+\subset & & \verb@\subset@ \\
+\subseteq & & \verb@\subseteq@ \\
+\sqsubseteq & & \verb@\sqsubseteq@ \\
+\supset & & \verb@\supset@ \\
+\supseteq & & \verb@\supseteq@ \\
+\sqsupseteq & & \verb@\sqsupseteq@ \\
+\in & & \verb@\in@ \\
+\ni & & \verb@\ni@ \\
+\parallel & & \verb@\parallel@ \\
+\approx & & \verb@\approx@
+\end{aligned}
+\end{equation*}
+
+\end{document}
